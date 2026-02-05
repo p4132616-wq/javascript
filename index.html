@@ -1,35 +1,55 @@
-// Arithmetic operations using switch-case
-
-function calculate(num1, num2, operator) {
-    let result;
-
-    switch (operator) {
-        case '+':
-            result = num1 + num2;
-            break;
-        case '-':
-            result = num1 - num2;
-            break;
-        case '*':
-            result = num1 * num2;
-            break;
-        case '/':
-            // check division by zero
-            result = num2 !== 0 ? num1 / num2 : "Error: Division by zero";
-            break;
-        case '%':
-            result = num1 % num2;
-            break;
-        default:
-            result = "Invalid operator";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arithmetic Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-
-    return result;
-}
-
-// Example usage:
-console.log(calculate(10, 5, '+')); // 15
-console.log(calculate(10, 5, '-')); // 5
-console.log(calculate(10, 5, '*')); // 50
-console.log(calculate(10, 5, '/')); // 2
-console.log(calculate(10, 5, '%')); // 0
+    .calculator {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+    }
+    input, select, button {
+      margin: 10px 0;
+      padding: 8px;
+      width: 90%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .result {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h2>Arithmetic Calculator</h2>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    
+    <select id="operator">
+      <option value="+">Addition (+)</option>
+      <option value="-">
