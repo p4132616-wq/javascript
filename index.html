@@ -1,25 +1,13 @@
-<!DOCTYPE html>
-<html>
-<body>
-  <input id="a" type="number" placeholder="First">
-  <input id="b" type="number" placeholder="Second">
-  <input id="op" placeholder="Operator (+,-,*,/,%)">
-  <button onclick="calc()">=</button>
-  <p id="res"></p>
+let a = 20, b = 15, op = '+';
+let result;
 
-  <script>
-    function calc(){
-      let x=+a.value, y=+b.value, o=op.value, r;
-      switch(o){
-        case '+': r=x+y; break;
-        case '-': r=x-y; break;
-        case '*': r=x*y; break;
-        case '/': r=y?x/y:"Error"; break;
-        case '%': r=x%y; break;
-        default: r="Invalid";
-      }
-      res.innerText="Result: "+r;
-    }
-  </script>
-</body>
-</html>
+switch(op) {
+  case '+': result = a + b; break;
+  case '-': result = a - b; break;
+  case '*': result = a * b; break;
+  case '/': result = b ? a / b : "Error"; break;
+  case '%': result = a % b; break;
+  default: result = "Invalid";
+}
+
+console.log("Result:", result);
