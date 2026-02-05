@@ -1,43 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>Calculator</title>
-  <style>
-    body {font-family: Arial; display:flex; height:100vh; justify-content:center; align-items:center; background:#f4f4f9;}
-    .calc {background:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);}
-    input,select,button {margin:5px 0; padding:8px; width:100%;}
-    button {background:#007bff; color:#fff; border:none; cursor:pointer;}
-    button:hover {background:#0056b3;}
-  </style>
-</head>
 <body>
-  <div class="calc">
-    <input type="number" id="n1" placeholder="First number">
-    <input type="number" id="n2" placeholder="Second number">
-    <select id="op">
-      <option value="+">+</option><option value="-">-</option>
-      <option value="*">*</option><option value="/">/</option>
-      <option value="%">%</option>
-    </select>
-    <button onclick="calc()">=</button>
-    <div id="res"></div>
-  </div>
+  <input id="a" type="number" placeholder="First">
+  <input id="b" type="number" placeholder="Second">
+  <input id="op" placeholder="Operator (+,-,*,/,%)">
+  <button onclick="calc()">=</button>
+  <p id="res"></p>
 
   <script>
     function calc(){
-      let a=+document.getElementById("n1").value,
-          b=+document.getElementById("n2").value,
-          op=document.getElementById("op").value, r;
-      switch(op){
-        case '+': r=a+b; break;
-        case '-': r=a-b; break;
-        case '*': r=a*b; break;
-        case '/': r=b? a/b : "Error"; break;
-        case '%': r=a%b; break;
+      let x=+a.value, y=+b.value, o=op.value, r;
+      switch(o){
+        case '+': r=x+y; break;
+        case '-': r=x-y; break;
+        case '*': r=x*y; break;
+        case '/': r=y?x/y:"Error"; break;
+        case '%': r=x%y; break;
         default: r="Invalid";
       }
-      document.getElementById("res").innerText="Result: "+r;
+      res.innerText="Result: "+r;
     }
   </script>
 </body>
